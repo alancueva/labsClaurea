@@ -13,16 +13,9 @@ const BRAND_COLORS = {
 
 
 
-//{isScrolled}:DynamicHeaderProps
-export default function Navbar() {
-    // Estilos de la barra de navegación
-    // const headerStyle = isScrolled
-    //     ? `bg-white shadow-xl py-2` // Se vuelve visible y con fondo blanco al hacer scroll
-    //     : `bg-transparent py-4 pointer-events-none`; // Transparente e inactivo cuando no se ha hecho scroll
 
-    // Color del logo pequeño en la barra de navegación (se vuelve verde al hacer scroll)
-    // const logoColor = BRAND_COLORS.primaryGreen;
-    // size='small' color={logoColor}
+export default function Navbar() {
+
     const cartItemCount:number = 1;
 
     return (
