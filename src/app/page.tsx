@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
         <HeroSection/>
-        <ProductSection/>
         <BrandIdentity/>
-        <QualityAndCommitment/>
+        <ProductSection/>
+        {/* <QualityAndCommitment/> */}
     </div>
   );
 }
