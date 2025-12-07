@@ -18,7 +18,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const itemsIzquierdos = ['Identidad', 'Productos', 'Compromiso'];
+  const itemsIzquierdos = ['Productos', 'Acerca de'];
 
 
   return (
