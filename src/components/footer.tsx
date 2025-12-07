@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconoClaureasimple } from './icons/logo-claurea';
+import Link from 'next/link';
 
 // Definición de colores para consistencia
 const BRAND_COLORS = {
@@ -95,9 +96,9 @@ const Footer: React.FC = () => {
 
       {/* Derechos de Autor y Legal */}
       <div className="text-center text-sm" style={{ color: secondaryColor }}>
-        <p>© {new Date().getFullYear()} LONE TEA HOUSE. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} Claurea. Todos los derechos reservados.</p>
         <p className="mt-1">
-          <a href="#privacy" className="hover:underline">Política de Privacidad</a> | 
+          <Link href="/page/politica-de-privacidad" className="hover:underline">Política de Privacidad</Link> | 
           <a href="#terms" className="hover:underline ml-2">Términos y Condiciones</a>
         </p>
       </div>
