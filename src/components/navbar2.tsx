@@ -18,7 +18,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const itemsIzquierdos = ['Productos', 'Acerca de'];
+  const itemsIzquierdos = [
+    {href:"/page/productos", nombre:"Productos"},
+    {href:"/page/acerca-de", nombre:"Acerca de"}
+  ];
 
 
   return (
@@ -40,18 +43,18 @@ export default function Navbar() {
             {/* Izquierda: Links de navegación para desktop */}
             <div className="flex-1 flex justify-start items-center">
             {/* Links izquierda – solo desktop */}
-            <div className="hidden lg:flex items-center space-x-12 text-sm font-medium">
-              {itemsIzquierdos.map((item) => (
+            <div className="hidden lg:flex items-center space-x-12 text-md font-medium">
+              {itemsIzquierdos.map((item, index) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={index}
+                  href={item.href}
                   className={`transition-all duration-300 hover:font-semibold ${
                     isScrolled
                       ? 'text-gray-800 hover:text-[#496F3E]'
                       : 'text-[#F7E2D0] hover:text-white drop-shadow-lg'
                   }`}
                 >
-                  {item}
+                  {item.nombre}
                 </a>
               ))}
             </div>
@@ -100,7 +103,7 @@ export default function Navbar() {
             {/* Derecha: Botones y menú */}
             <div className="flex-1 flex justify-end items-center space-x-2 md:space-x-5">
 
-              <Link href="/page/productos" className="hidden lg:block">
+              {/* <Link href="/page/productos" className="hidden lg:block">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -112,7 +115,7 @@ export default function Navbar() {
                 >
                   Comprar Ahora
                 </motion.button>
-              </Link>
+              </Link> */}
               {/* Carrito */}
               <button className="relative p-2">
                 <svg
@@ -151,24 +154,24 @@ export default function Navbar() {
               className="lg:hidden fixed inset-x-0 top-20 bg-white/98 backdrop-blur-xl shadow-2xl border-t border-gray-100"
             >
               <div className="px-8 py-14 space-y-10 text-center">
-                {itemsIzquierdos.map((item) => (
+                {itemsIzquierdos.map((item, index) => (
                   <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
+                    key={index}
+                    href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-2xl font-light tracking-wider text-gray-800 hover:text-[#496F3E] transition"
                   >
-                    {item}
+                    {item.nombre}
                   </a>
                 ))}
-                <Link href="/page/productos" className="block mt-12">
+                {/* <Link href="/page/productos" className="block mt-12">
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="w-full py-5 bg-[#496F3E] text-white text-lg font-medium rounded-full hover:bg-[#3a5530] transition shadow-lg"
                   >
                     Comprar Ahora
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </motion.div>
           )}
