@@ -1,5 +1,6 @@
+import Link from "next/link";
 
-export default function HeroSection(){
+export default function HeroSection() {
 
   const heroImageUrl = `/qingbao-meng.jpg`;
 
@@ -15,7 +16,7 @@ export default function HeroSection(){
     >
       {/* Overlay para mejor contraste del texto */}
       <div className="absolute inset-0 bg-black opacity-30"></div>
-      
+
       {/* Contenido principal del Hero */}
       <div className="relative z-10 text-center space-y-6">
 
@@ -25,9 +26,11 @@ export default function HeroSection(){
         <p className="text-lg md:text-xl italic max-w-xl mx-auto">
           Descubre nuestra linea de productos naturales
         </p>
-        <button className="mt-6 px-8 py-3 bg-white text-gray-900 font-semibold rounded-xl shadow-2xl transition hover:bg-gray-200">
-          Explora Nuestros Productos
-        </button>
+        <Link href={"/page/productos"} >
+          <button className="mt-6 px-8 py-3 bg-white text-gray-900 font-semibold rounded-xl shadow-2xl transition hover:bg-gray-200">
+            Explora Nuestros Productos
+          </button>
+        </Link>
       </div>
     </header>
   );
