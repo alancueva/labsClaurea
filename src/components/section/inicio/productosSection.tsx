@@ -12,19 +12,19 @@ export default function ProductSection() {
     {
       title: "Bálsamo",
       description: "Bálsamo elaborado con ingredientes de origen natural que hidratan y protegen los labios a profundidad.",
-      imageUrl: `/bioserums.png`,
+      imageUrl: `/productos/hidratalash.png`,
       price: "S/. 10.00"
     },
     {
       title: "Sérum Pestañas y Cejas",
       description: "Sérum elaborado con una mezcla de aceites naturales que nutren profundamente, hidratan y revitalizan pestañas y cejas.",
-      imageUrl: `/bioserums.png`,
+      imageUrl: `/productos/hidratalash.png`,
       price: "S/. 25.00"
     },
     {
       title: "Sérum Reparador Capilar",
       description: "El Sérum es un tratamiento natural que actúa directamente en la raíz del cabello.",
-      imageUrl: `/bioserums.png`,
+      imageUrl: `/productos/bioserum-capilar.png`,
       price: "S/. 48.00"
     },
   ];
@@ -49,7 +49,7 @@ export default function ProductSection() {
                 height={1200}
                 width={800}
 
-                className="w-auto h-50 rounded-lg mb-4 shadow-md"
+                className="w-auto h-60 rounded-lg mb-4 "
               />
               <h3 className="text-2xl font-semibold mt-4" style={{ color: BRAND_COLORS.primaryGreen }}>{product.title}</h3>
               <p className="text-gray-600 mt-2 flex-grow">{product.description}</p>
