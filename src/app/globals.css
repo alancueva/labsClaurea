@@ -24,3 +24,23 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+*::-webkit-scrollbar {
+  width: 10px;               /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: #1E3023;        /* color of the tracking area */
+}
+
+
+*::-webkit-scrollbar-thumb {
+  background-color: #5a6d4f;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #1E3023;  /* creates padding around scroll thumb */
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #7c966d;
+  }
