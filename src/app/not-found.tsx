@@ -1,9 +1,14 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 const BRAND_COLORS = {
   primaryGreen: '#496F3E',
   secondaryBeige: '#F7E2D0',
 };
+
+export const metadata: Metadata = {
+  title: 'Página no encontrada',
+}
 
 export default function NotFound() {
   const heroImageUrl = `/zabihullah-habibi.jpg`;
