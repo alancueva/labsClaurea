@@ -17,7 +17,7 @@ export default function NotFound() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="text-9xl mb-6 opacity-75" style={{ color: BRAND_COLORS.primaryGreen }}>
+      <div className="text-9xl mb-6 opacity-75 mt-15" style={{ color: BRAND_COLORS.primaryGreen }}>
         🌿
       </div>
 
