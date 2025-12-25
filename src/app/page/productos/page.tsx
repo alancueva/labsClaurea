@@ -1,11 +1,11 @@
-import RitualProductsSection from "@/components/section/productos/RitualProductsSection";
+import App from "@/components/section/productos/claureashop";
 
 
 export default function Productos(){
 
     return(
         <>
-            <RitualProductsSection/>
+            <App/>
         </>
     )
 }
