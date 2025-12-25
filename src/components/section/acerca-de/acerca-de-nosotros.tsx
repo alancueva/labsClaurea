@@ -46,7 +46,7 @@ export default function AcercaDe() {
             {/* Historia Section */}
             <section className="py-20 max-w-6xl mx-auto px-6">
                 <div className="grid md:grid-cols-2 gap-16 items-center">
-                    <div className={`transition-all duration-1000 transform -translate-x-10 opacity-100`}>
+                    <div className={`transition-all duration-1000 transform translate-x-1 opacity-100`}>
                         <SectionTitle>Nuestra Historia</SectionTitle>
                         <div className="space-y-4 text-gray-700 leading-relaxed">
                             <p>
