@@ -65,11 +65,11 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex gap-4 pt-4">
               {[
-                { icon: <Instagram size={20} />, label: 'Instagram' },
+                { icon: <Instagram size={20} />, label: 'Instagram', href:'https://www.instagram.com/_claurea/' },
                 // { icon: <Facebook size={20} />, label: 'Facebook' },
                 // { icon: <Twitter size={20} />, label: 'Twitter' }
               ].map((social, i) => (
-                <a key={i} href="#" aria-label={social.label} className="p-3 rounded-full border border-[#F7E2D0]/20 text-[#F7E2D0] hover:bg-[#F7E2D0] hover:text-[#496F3E] transition-all duration-500">
+                <a key={i} href={social.href} aria-label={social.label} className="p-3 rounded-full border border-[#F7E2D0]/20 text-[#F7E2D0] hover:bg-[#F7E2D0] hover:text-[#496F3E] transition-all duration-500">
                   {social.icon}
                 </a>
               ))}
