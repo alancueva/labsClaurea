@@ -86,8 +86,8 @@ export default function Navbar() {
                 <div className="flex items-center justify-center">
                   <IconoClaureasimple
                     className={`transition-all duration-700 ${isScrolled
-                        ? 'h-35 w-auto text-[#F7E2D0]'      // scroll → verde pequeño
-                        : 'h-36 w-auto text-[#F7E2D0]'      // inicio → beige grande
+                      ? 'h-35 w-auto text-[#F7E2D0]'      // scroll → verde pequeño
+                      : 'h-36 w-auto text-[#F7E2D0]'      // inicio → beige grande
                       }`}
                     style={{ fill: 'currentColor', stroke: 'none' }} // ← IMPORTANTE
                   />
@@ -112,8 +112,8 @@ export default function Navbar() {
                 </motion.button>
               </Link> */}
               {/* Carrito */}
-              <button    onClick={() => setIsCartOpen(true)} className="relative p-2"  >
-                 <CartIcon className="w-7 h-7 group-hover:scale-110 transition-transform" />
+              <button onClick={() => setIsCartOpen(true)} className="relative p-2"  >
+                <CartIcon className="w-7 h-7 text-[#F7E2D0] group-hover:scale-110 transition-transform" />
                 {cartItemCount > 0 && (
                   <span className="absolute -top-1 -right-0.5 bg-red-500 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-[#496F3E]">
                     {cartItemCount}
@@ -261,7 +261,7 @@ const MobileMenu = ({ isOpen, onClose, items }: { isOpen: boolean; onClose: () =
           >
             <div className="flex justify-between items-center mb-10">
               <Link href="/">
-              <IconoClaureasimple className="h-30 w-auto text-[#F7E2D0]" style={{ fill: 'currentColor' }} />
+                <IconoClaureasimple className="h-30 w-auto text-[#F7E2D0]" style={{ fill: 'currentColor' }} />
               </Link>
               <button onClick={onClose} className="text-[#F7E2D0] p-2">
                 <CloseIcon className="w-8 h-8" />
