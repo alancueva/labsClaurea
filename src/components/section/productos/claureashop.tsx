@@ -111,7 +111,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800">
       {/* Navegación de Tienda */}
-      <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4">
+      {/* <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex flex-col cursor-pointer" onClick={() => setView('shop')}>
             <span className="text-[#496F3E] font-serif font-black text-2xl tracking-tighter">CLAUREA</span>
@@ -130,11 +130,11 @@ const App = () => {
             )}
           </button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Header de Categoría */}
-      <header className="bg-[#F7E2D0]/30 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
+      <header className="bg-[#F7E2D0]/30 py-20 px-6">
+        <div className="max-w-7xl mx-auto mt-10">
           <h1 className="text-4xl font-serif font-bold text-[#496F3E] mb-2 text-center md:text-left">Nuestros Productos</h1>
           <p className="text-gray-600 max-w-lg text-center md:text-left">Fórmulas botánicas desarrolladas con precisión química para el cuidado diario de tu piel.</p>
         </div>
@@ -264,7 +264,7 @@ const App = () => {
                 >
                   Finalizar Compra
                 </button>
-                <p className="text-[10px] text-center text-gray-400 mt-4 uppercase tracking-widest font-bold">Envío gratuito en pedidos mayores a $50</p>
+                {/* <p className="text-[10px] text-center text-gray-400 mt-4 uppercase tracking-widest font-bold">Envío gratuito en pedidos mayores a $50</p> */}
               </div>
             )}
           </div>
