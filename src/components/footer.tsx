@@ -24,15 +24,15 @@ const BRAND_COLORS = {
 
 const navigation = {
   botanica: [
-    { name: 'Cosecha Consciente', href: '#harvest' },
-    { name: 'Herbolaria Moderna', href: '#herbs' },
-    { name: 'Aceites y Esencias', href: '#essences' },
-    { name: 'Cuidado de la Tierra', href: '#earth-care' },
+    // { name: 'Cosecha Consciente', href: '#harvest' },
+    // { name: 'Herbolaria Moderna', href: '#herbs' },
+    { name: 'Aceites y Esencias', href: '/page/aceites-y-esencias' },
+    // { name: 'Cuidado de la Tierra', href: '#earth-care' },
   ],
   comunidad: [
-    { name: 'Encuentra un Refugio', href: '#locations' },
-    { name: 'Talleres de Bienestar', href: '#workshops' },
-    { name: 'Preguntas Frecuentes', href: '#faq' },
+    // { name: 'Encuentra un Refugio', href: '#locations' },
+    // { name: 'Talleres de Bienestar', href: '#workshops' },
+    { name: 'Preguntas Frecuentes', href: '/page/preguntas-frecuentes' },
   ]
 };
 
