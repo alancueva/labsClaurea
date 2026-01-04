@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, X, ZoomIn, ShoppingCart } from 'lucide-react
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useCart } from '@/context/CartContext';
 
 const BRAND_COLORS = {
   primaryGreen: '#496F3E',
@@ -10,32 +11,41 @@ const BRAND_COLORS = {
 };
 
 interface Product {
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
   price: string;
+  category: string;
 }
 
 export default function ProductSection() {
+  const { addToCart } = useCart();
 
   const productData: Product[] = [
     {
+      id: 1,
       title: "Bálsamo",
       description: "Bálsamo elaborado con ingredientes de origen natural que hidratan y protegen los labios a profundidad.",
       imageUrl: `/productos/lipcare.png`,
-      price: "S/. 12.00"
+      price: "S/. 12.00",
+      category: "Labios"
     },
     {
+      id: 2,
       title: "Sérum Pestañas y Cejas",
       description: "Sérum elaborado con una mezcla de aceites naturales que nutren profundamente, hidratan y revitalizan pestañas y cejas.",
       imageUrl: `/productos/hidratalash.png`,
-      price: "S/. 27.00"
+      price: "S/. 27.00",
+      category: "Pestañas y Cejas"
     },
     {
+      id: 3,
       title: "Sérum Reparador Capilar",
       description: "El Sérum es un tratamiento natural que actúa directamente en la raíz del cabello.",
       imageUrl: `/productos/bioserum-capilar.png`,
-      price: "S/. 50.00"
+      price: "S/. 50.00",
+      category: "Cabello"
     },
   ];
 
@@ -48,6 +58,21 @@ export default function ProductSection() {
 
   const handlePrev = () => {
     setSelectedIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : productData.length - 1));
+  };
+
+  const handleAddToCart = (product: Product) => {
+    const cartProduct = {
+      id: product.id,
+      name: product.title,
+      price: parseFloat(product.price.replace('S/. ', '').replace(',', '')),
+      category: product.category,
+      rating: 5,
+      reviews: 0,
+      description: product.description,
+      details: product.description,
+      image: product.imageUrl,
+    };
+    addToCart(cartProduct);
   };
 
 
@@ -120,6 +145,7 @@ export default function ProductSection() {
                     {product.price}
                   </p>
                   <button
+                    onClick={() => handleAddToCart(product)}
                     className="w-full flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-white font-semibold transform transition active:scale-95 hover:brightness-110 shadow-lg shadow-green-900/10 text-sm"
                     style={{ backgroundColor: BRAND_COLORS.primaryGreen }}
                   >
