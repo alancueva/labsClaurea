@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconoClaureasimple } from '@/components/icons/logo-claurea';
+import { useCart } from '@/context/CartContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartItemCount = 0;
+  const { toggleCart, getItemCount } = useCart();
+  const cartItemCount = getItemCount();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,8 +112,8 @@ export default function Navbar() {
                   Comprar Ahora
                 </motion.button>
               </Link> */}
-              {/* Carrito */}
-              <button onClick={() => setIsCartOpen(true)} className="relative p-2"  >
+{/* Carrito */}
+              <button onClick={toggleCart} className="relative p-2"  >
                 <CartIcon className="w-7 h-7 text-[#F7E2D0] group-hover:scale-110 transition-transform" />
                 {cartItemCount > 0 && (
                   <span className="absolute -top-1 -right-0.5 bg-red-500 text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center border-2 border-[#496F3E]">
@@ -126,15 +127,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Menú móvil – también 100% sin fondo negro */}
+{/* Menú móvil – también 100% sin fondo negro */}
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
           items={itemsIzquierdos}
-        />
-        <CartDrawer
-          isOpen={isCartOpen}
-          onClose={() => setIsCartOpen(false)}
         />
 
 
@@ -179,65 +176,7 @@ const CloseIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// --- Componente: CartDrawer (Despliega de Derecha a Izquierda) ---
-const CartDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
-          {/* Overlay oscuro */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100]"
-          />
 
-          {/* Panel del Carrito */}
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-y-0 right-0 w-full max-w-md bg-white z-[110] shadow-2xl flex flex-col"
-          >
-            <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-2xl font-semibold text-gray-800">Mi Carrito</h2>
-              <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500">
-                <CloseIcon className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto p-6 space-y-4">
-              {/* Espacio para items del carrito */}
-              <div className="flex flex-col items-center justify-center h-full text-gray-400 space-y-2">
-                <CartIcon className="w-16 h-16 opacity-20" />
-                <p className="text-lg">Tu carrito está vacío</p>
-                <button
-                  onClick={onClose}
-                  className="text-[#496F3E] font-medium underline underline-offset-4 mt-2"
-                >
-                  Seguir comprando
-                </button>
-              </div>
-            </div>
-
-            <div className="p-6 border-t bg-gray-50 text-gray-800">
-              <div className="flex justify-between text-lg font-bold mb-4">
-                <span>Total estimado</span>
-                <span>$0.00</span>
-              </div>
-              <button className="w-full py-4 bg-[#496F3E] text-white rounded-xl font-bold text-lg hover:bg-[#3a5530] transition-transform active:scale-95 shadow-lg">
-                Finalizar Pedido
-              </button>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  );
-};
 
 // --- Componente: MobileMenu (Despliega de Izquierda a Derecha) ---
 const MobileMenu = ({ isOpen, onClose, items }: { isOpen: boolean; onClose: () => void; items: Array<{ href: string; nombre: string }> }) => {
