@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useCart } from '@/context/CartContext';
-import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
+import { useCart } from "@/context/CartContext";
+import { X, Plus, Minus, ShoppingBag } from "lucide-react";
 
-const CartDrawer: React.FC = () => {
-  const { state, removeFromCart, updateQuantity, closeCart, clearCart } = useCart();
+export default function CartDrawer() {
+  const { state, removeFromCart, updateQuantity, closeCart, clearCart } =
+    useCart();
 
   const handleQuantityChange = (id: number, newQuantity: number) => {
     if (newQuantity < 1) {
@@ -13,6 +13,31 @@ const CartDrawer: React.FC = () => {
     } else {
       updateQuantity(id, newQuantity);
     }
+  };
+
+  const setCantidadCarrito = () => {
+    const tituloSaludo: string = "Hola, Este es mi pedido: ";
+
+    const formatCurrency = (value: number) =>
+      new Intl.NumberFormat("es-PE", {
+        style: "currency",
+        currency: "PEN",
+      }).format(value);
+
+    const itemsText = state.items
+      .map((item) => {
+        const price = formatCurrency(item.price);
+        const subtotal = formatCurrency(item.price * item.quantity);
+        return `• *${item.name}* (${item.quantity} x ${price}) = ${subtotal}`;
+      })
+      .join("\n");
+
+    const totalText = `*Total:* ${formatCurrency(state.total)}`;
+    const whatsappLink =
+      "https://wa.me/51923795164?text=" +
+      encodeURIComponent(tituloSaludo + "\n" + itemsText + "\n" + totalText);
+
+    window.open(whatsappLink, "_blank");
   };
 
   return (
@@ -27,15 +52,18 @@ const CartDrawer: React.FC = () => {
 
       {/* Cart Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${state.isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+          state.isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-6 h-6 text-[#496F3E]" />
-              <h2 className="text-xl font-semibold text-gray-800">Tu Carrito</h2>
+              <h2 className="text-xl font-semibold text-gray-800">
+                Tu Carrito
+              </h2>
               <span className="bg-[#496F3E] text-white text-xs px-2 py-1 rounded-full">
                 {state.items.reduce((count, item) => count + item.quantity, 0)}
               </span>
@@ -53,8 +81,12 @@ const CartDrawer: React.FC = () => {
             {state.items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
                 <ShoppingBag className="w-16 h-16 text-gray-300 mb-4" />
-                <p className="text-gray-500 text-lg mb-2">Tu carrito está vacío</p>
-                <p className="text-gray-400 text-sm">Agrega productos para comenzar</p>
+                <p className="text-gray-500 text-lg mb-2">
+                  Tu carrito está vacío
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Agrega productos para comenzar
+                </p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -69,15 +101,21 @@ const CartDrawer: React.FC = () => {
                       className="w-20 h-20 object-cover rounded-lg"
                     />
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800">{item.name}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{item.category}</p>
+                      <h3 className="font-semibold text-gray-800">
+                        {item.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {item.category}
+                      </p>
                       <div className="flex items-center justify-between">
                         <span className="text-lg font-bold text-[#496F3E]">
-                          ${item.price.toLocaleString('es-CO')}
+                          ${item.price.toLocaleString("es-CO")}
                         </span>
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+                            onClick={() =>
+                              handleQuantityChange(item.id, item.quantity - 1)
+                            }
                             className="w-6 h-6 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
                           >
                             <Minus className="w-4 h-4 text-gray-600" />
@@ -86,7 +124,9 @@ const CartDrawer: React.FC = () => {
                             {item.quantity}
                           </span>
                           <button
-                            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+                            onClick={() =>
+                              handleQuantityChange(item.id, item.quantity + 1)
+                            }
                             className="w-6 h-6 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors duration-200"
                           >
                             <Plus className="w-4 h-4 text-gray-600" />
@@ -110,18 +150,17 @@ const CartDrawer: React.FC = () => {
           {state.items.length > 0 && (
             <div className="border-t border-gray-200 p-6 space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-gray-700">Total:</span>
+                <span className="text-lg font-semibold text-gray-700">
+                  Total:
+                </span>
                 <span className="text-2xl font-bold text-[#496F3E]">
-                  ${state.total.toLocaleString('es-CO')}
+                  ${state.total.toLocaleString("es-CO")}
                 </span>
               </div>
 
               <div className="space-y-2">
                 <button
-                  onClick={() => {
-                    // TODO: Implement checkout functionality
-                    alert('Función de checkout en desarrollo');
-                  }}
+                  onClick={setCantidadCarrito}
                   className="w-full bg-[#496F3E] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#3a5632] transition-colors duration-200"
                 >
                   Finalizar Compra
@@ -140,6 +179,4 @@ const CartDrawer: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default CartDrawer;
+}
