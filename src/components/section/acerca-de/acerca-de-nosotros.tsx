@@ -64,7 +64,7 @@ export default function AcercaDe() {
                         <div className="absolute -inset-4 bg-[#F7E2D0] rounded-2xl -z-10 transition-transform group-hover:scale-105"></div>
                         <div className="aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden shadow-xl border-8 border-white">
                             <img
-                                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&q=80&w=800"
+                                src="/productos-juntos.png"
                                 alt="Proceso de formulación de Claurea"
                                 className="w-full h-full object-cover"
                             />
