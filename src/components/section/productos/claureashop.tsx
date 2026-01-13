@@ -27,7 +27,8 @@ interface Product {
 
 // Colores de marca: Verde (#496F3E), Crema (#F7E2D0), Blanco (#FFFFFF)
 
-const App = () => {
+
+export default function ClaureaShop() {
   const { addToCart } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,10 +39,10 @@ const App = () => {
       id: 1,
       title: "Bálsamo",
       name: "Bálsamo Labial",
-      price: "12.00",
+      price: "14.00",
       category: "Cuidado Labial",
       description: "Nuestro producto estrella nacido de la química pura. Hidratación profunda con ingredientes 100% naturales.",
-      details: "Formulado con manteca de karité, aceite de coco y vitamina E. Sin petrolatos ni fragancias sintéticas.",
+      details: "Formulado con Manteca de cacao, vitamina E, glicerina, mica vegetal. Sin petrolatos ni fragancias sintéticas.",
       imageUrl: "/productos/1766697206290.jpg",
       tag: "Best Seller"
     },
@@ -49,10 +50,10 @@ const App = () => {
       id: 2,
       title: "Sérum Pestañas y Cejas",
       name: "Sérum Fortalecedor",
-      price: "27.00",
+      price: "29.00",
       category: "Ojos y Cejas",
       description: "Nutrición intensa para pestañas y cejas. Revitaliza y realza tu mirada de forma vegana.",
-      details: "Mezcla de aceites prensados en frío (ricino, argán y almendras) con extractos botánicos activos.",
+      details: "Mezcla de aceites prensados en frío (Aceite de ricino, Aceite de jojoba, Oleato de romero y Vitamina E.) con extractos botánicos activos.",
       imageUrl: "/productos/1766690411788.jpg",
       tag: "Vegano"
     },
@@ -60,10 +61,10 @@ const App = () => {
       id: 3,
       title: "Sérum Reparador Capilar",
       name: "Sérum Reparador",
-      price: "50.00",
+      price: "52.00",
       category: "Cuero Cabelludo",
       description: "La combinación perfecta para tu rutina diaria de cuidado consciente.",
-      details: "Incluye el Bálsamo Labial Original y el Sérum Fortalecedor en una bolsa de lino orgánico.",
+      details: "Formulado con Aceite de ricino, aceite de jojoba, esencia de romero, vitamina E. Natural, formula vegana, libre de sulfatos y parabenos.",
       imageUrl: "/productos/1766690411861.jpg",
       tag: "Vegano"
     }
@@ -264,5 +265,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
