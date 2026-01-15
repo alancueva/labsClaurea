@@ -92,6 +92,15 @@ export default function ClaureaShop() {
     setSelectedProduct(null);
   }
 
+  const formatPrecio = (precio: number): string => {
+    return precio.toLocaleString("es-PE", {
+      style: "currency",
+      currency: "PEN",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })
+  }
+
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800">
       {/* Navegación de Tienda */}
@@ -166,7 +175,7 @@ export default function ClaureaShop() {
                 <p className="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">{product.description}</p>
 
                 <div className="mt-auto flex items-center justify-between pt-4 border-t border-gray-50">
-                  <span className="text-2xl font-serif font-bold text-[#496F3E]">${product.price}</span>
+                  <span className="text-2xl font-serif font-bold text-[#496F3E]"> {formatPrecio(Number(product.price))}</span>
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="bg-[#496F3E] text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3a5931] transform active:scale-95 transition-all flex items-center gap-2 shadow-md shadow-[#496F3E]/20"
@@ -207,7 +216,7 @@ export default function ClaureaShop() {
               <span className="text-[#496F3E] font-bold text-xs uppercase tracking-[0.2em]">{selectedProduct.category}</span>
               <h2 className="text-3xl font-serif font-bold text-gray-900 mt-2 mb-4">{selectedProduct.name}</h2>
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-3xl font-serif font-bold text-[#496F3E]">${selectedProduct.price}</span>
+                <span className="text-3xl font-serif font-bold text-[#496F3E]">{formatPrecio(Number(selectedProduct.price))}</span>
                 <div className="flex items-center text-amber-500">
                   {/* <Star size={16} fill="currentColor" />
                   <span className="ml-1 text-sm font-bold">{selectedProduct.rating} ({selectedProduct.reviews} reseñas)</span> */}
