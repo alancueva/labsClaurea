@@ -107,7 +107,8 @@ export default function CartDrawer() {
                       <Image
                         src={item.image}
                         alt={item.name}
-                        fill
+                        width={300}
+                        height={500}
                         priority
                         className="w-20 h-20 object-cover rounded-lg"
                       />
