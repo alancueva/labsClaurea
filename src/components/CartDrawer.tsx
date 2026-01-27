@@ -44,7 +44,7 @@ export default function CartDrawer() {
 
       const totalText = `*Total:* ${formatCurrency(state.total)}`;
       const whatsappLink =
-        "https://wa.me/51923795164?text=" +
+        "https://wa.me/51902908112?text=" +
         encodeURIComponent(tituloSaludo + "\n" + itemsText + "\n" + totalText);
 
       window.open(whatsappLink, "_blank");
